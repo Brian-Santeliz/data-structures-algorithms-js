@@ -8,3 +8,21 @@
     5. Reomve in the middle -> O(n)
     5. Search by index -> O(n) ->   In array is de the best O(1)
 */
+
+
+class Node{
+    constructor(value){
+        this.value = value;
+        this.next = null;
+    }
+}
+class linkedList{
+    constructor(value){
+        const newNode =  new Node(value);
+        this.head = newNode;
+        this.tail = this.head;
+        this.length = 1;
+    }
+}
+const node1 = new Node(30);
+console.log(node1)
