@@ -86,6 +86,14 @@ class linkedList {
     }
     return temp;
   }
+  set(index, value) {
+    let temp = this.getFromIndex(index);
+    if (temp) {
+      temp.value = value;
+      return true;
+    }
+    return false;
+  }
 }
 let myLinkedList = new linkedList(1);
 myLinkedList.push(2);
