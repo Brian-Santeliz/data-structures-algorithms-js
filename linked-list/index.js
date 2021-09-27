@@ -19,7 +19,7 @@ class linkedList {
   constructor(value) {
     const newNode = new Node(value);
     this.head = newNode;
-    this.tail = this.head;
+    this.tail = newNode;
     this.length = 1;
   }
   push(value) {
@@ -27,7 +27,7 @@ class linkedList {
     /* Check if not exist this.head  */
     if (!this.head) {
       this.head = newNode;
-      this.tail = this.head;
+      this.tail = newNode;
     } else {
       /* Add element to the end and set tail with de last node */
       this.tail.next = newNode;
@@ -54,17 +54,30 @@ class linkedList {
     }
     return temp;
   }
-  unshift(value){
+  unshift(value) {
     let newNode = new Node(value);
-    if(!this.head){
+    if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
-    }else{
+    } else {
       /* Set newNode.next to the current node in this.head, and change pointer of head */
       newNode.next = this.head;
       this.head = newNode;
     }
-    this.length++
-    return this
+    this.length++;
+    return this;
+  }
+  shift() {
+    if (!this.head) return undefined;
+    const temp = this.head;
+    this.head = temp.next;
+    temp.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return temp;
   }
 }
+let myLinkedList = new linkedList(1)
+myLinkedList.push(2)
