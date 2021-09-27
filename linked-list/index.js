@@ -9,20 +9,31 @@
     5. Search by index -> O(n) ->   In array is de the best O(1)
 */
 
-
-class Node{
-    constructor(value){
-        this.value = value;
-        this.next = null;
-    }
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
 }
-class linkedList{
-    constructor(value){
-        const newNode =  new Node(value);
-        this.head = newNode;
-        this.tail = this.head;
-        this.length = 1;
+class linkedList {
+  constructor(value) {
+    const newNode = new Node(value);
+    this.head = newNode;
+    this.tail = this.head;
+    this.length = 1;
+  }
+  push(value) {
+    const newNode = new Node(value);
+    /* Check if not exist this.head  */
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+    /* Add element to the end and set tail with de last node */
+      this.tail.next = newNode;
+      this.tail = newNode;
     }
+    this.length++;
+    return this;
+  }
 }
-const node1 = new Node(30);
-console.log(node1)
