@@ -54,4 +54,17 @@ class linkedList {
     }
     return temp;
   }
+  unshift(value){
+    let newNode = new Node(value);
+    if(!this.head){
+      this.head = newNode;
+      this.tail = newNode;
+    }else{
+      /* Set newNode.next to the current node in this.head, and change pointer of head */
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++
+    return this
+  }
 }
