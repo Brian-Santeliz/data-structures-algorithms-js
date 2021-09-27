@@ -29,11 +29,29 @@ class linkedList {
       this.head = newNode;
       this.tail = this.head;
     } else {
-    /* Add element to the end and set tail with de last node */
+      /* Add element to the end and set tail with de last node */
       this.tail.next = newNode;
       this.tail = newNode;
     }
     this.length++;
     return this;
+  }
+  pop() {
+    if (!this.head) return undefined;
+    let temp = this.head;
+    let pre = this.head;
+    while (temp.next) {
+      pre = temp;
+      temp = temp.next;
+    }
+    this.tail = pre;
+    this.tail.next = null;
+    this.length--;
+    /* If no more items in list, set null both pointers */
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return temp;
   }
 }
