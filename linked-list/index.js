@@ -94,6 +94,17 @@ class linkedList {
     }
     return false;
   }
+  insert(index, value) {
+    if (index < 0 || index >= this.length) return false;
+    if (index === 0) return this.unshift(value);
+    if (index === this.length - 1) return this.push(value);
+    const newNode = new Node(value);
+    let temp = this.getFromIndex(index - 1);
+    newNode.next = temp.next;
+    temp.next = newNode;
+    this.length++;
+    return true;
+  }
 }
-let myLinkedList = new linkedList(1);
-myLinkedList.push(2);
+let myLinkedList = new linkedList(0);
+myLinkedList.push(1);
