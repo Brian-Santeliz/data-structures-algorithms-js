@@ -119,4 +119,3 @@ class linkedList {
 }
 let myLinkedList = new linkedList(0);
 myLinkedList.push(1);
-a
